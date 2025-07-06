@@ -5,4 +5,4 @@ requests
 plotly
 pytz
 passlib
-sqlite3 
+numpy==1.21.6  # If using Python 3.10
