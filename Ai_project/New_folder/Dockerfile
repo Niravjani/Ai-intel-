@@ -1,11 +1,10 @@
-FROM python:3.10
+FROM python:3.10-slim
 
 WORKDIR /app
 
-COPY . requirements.txt 
+COPY . /app/
 
-RUN pip install -r requirements.txt
-
-EXPOSE 8501
-
-CMD ["streamlit", "run", "dairy_temperature_app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+RUN python -m venv /opt/venv && \
+    . /opt/venv/bin/activate && \
+    pip install --upgrade pip && \
+    pip install -r requirements.txt
